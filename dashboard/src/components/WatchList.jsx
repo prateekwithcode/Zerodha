@@ -3,7 +3,7 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 
 import GeneralContext from "./GeneralContext";
-import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
+import { KeyboardArrowDown, KeyboardArrowUp,BarChartOutlined, MoreHoriz} from "@mui/icons-material";
 import { Tooltip, Grow } from "@mui/material";
 import { watchlist } from "../data/data";
 
@@ -57,7 +57,7 @@ const WatchListItem = ({ stock }) => {
           <span className="price">{stock.price}</span>
         </div>
       </div>
-      {showWatchListActions && <WatchListActions uid={stock.name}/>}
+      {showWatchListActions && <WatchListActions uid={stock.name} />}
     </li>
   );
 };
@@ -66,8 +66,46 @@ const WatchListActions = ({ uid }) => {
   return (
     <span className="actions">
       <span>
-        <Tooltip title="Buy (B)" placement="top" arrow TransitionComponent={Grow}>
+        <Tooltip
+          title="Buy (B)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+        >
           <button className="buy">Buy</button>
+        </Tooltip>
+
+        <Tooltip
+          title="Sell (S)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+        >
+          <button className="sell">Buy</button>
+        </Tooltip>
+
+        <Tooltip
+          title="Analytics (A)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+        >
+          <button className="action">
+
+          <BarChartOutlined className="icon"/>
+          </button>
+        </Tooltip>
+
+        <Tooltip
+          title="More (M)"
+          placement="top"
+          arrow
+          TransitionComponent={Grow}
+        >
+          
+          <button className="more">
+            <MoreHoriz className="icon"/>
+          </button>
         </Tooltip>
       </span>
     </span>
